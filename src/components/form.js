@@ -1,11 +1,15 @@
 /**
- * Main component
+ * Form component
  */
 
 import React from 'react';
 
 class Form extends React.Component {
 
+    /**
+     * Default location and API settings
+     * @param {Object} props
+     */
     constructor(props){
         super(props);
         this.getLocation = this.getLocation.bind(this);
@@ -36,6 +40,9 @@ class Form extends React.Component {
         };
     }
 
+    /**
+     * Attempt to get device location
+     */
     getLocation(){
         navigator.geolocation.getCurrentPosition(
             position => {
@@ -56,6 +63,9 @@ class Form extends React.Component {
         );
     }
 
+    /**
+     * Make AJAX request to the API
+     */
     getForecast(){
         const now = Date.now();
         if (!this.props.hasForecast || now - this.state.lastRequest > this.url.frequency){
@@ -91,6 +101,10 @@ class Form extends React.Component {
         }
     }
 
+    /**
+     * Handle coordinate inputs
+     * @param {SyntheticEvent} event - change event
+     */
     change(event){
         const dir = event.target.name;
         const val = {
@@ -106,6 +120,10 @@ class Form extends React.Component {
         }
     }
 
+    /**
+     * Render the form
+     * @return {Object}
+     */
     render(){
         return (
             <div className="form">

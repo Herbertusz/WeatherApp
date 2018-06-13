@@ -9,6 +9,10 @@ import Forecast from './forecast';
 
 class App extends React.Component {
 
+    /**
+     * Get forecast from localStorage
+     * @param {Object} props
+     */
     constructor(props){
         super(props);
         this.setForecastFromStorage = this.setForecastFromStorage.bind(this);
@@ -20,6 +24,9 @@ class App extends React.Component {
         };
     }
 
+    /**
+     * Set state by the localStorage data
+     */
     setForecastFromStorage(){
         const forecast = localStorage.getItem('weatherForecastData');
         this.setState({
@@ -28,6 +35,10 @@ class App extends React.Component {
         });
     }
 
+    /**
+     * Render the entire app
+     * @return {Object}
+     */
     render(){
         return (
             <section className="main">

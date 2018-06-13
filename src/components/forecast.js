@@ -1,5 +1,5 @@
 /**
- * Main component
+ * Forecast table component
  */
 
 import React from 'react';
@@ -10,6 +10,10 @@ class Forecast extends React.Component {
         super(props);
     }
 
+    /**
+     * Render the table
+     * @return {Object}
+     */
     render(){
         const data = this.props.data;
         if (!data) return null;
